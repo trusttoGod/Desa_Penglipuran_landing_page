@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panglipuran Village</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background-color: #f9f6f0;
+        color: #4a4a4a;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background: linear-gradient(
+          to right,
+          #557153,
+          #8c7352
+        ) !important; /* Natural green */
+        border-bottom: 3px solid #8c7352 !important; /* Bamboo brown */
+      }
+
+      .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #fff !important;
+      }
+      .nav-link {
+        color: #fff !important;
+        margin-right: 15px;
+        font-weight: 500;
+      }
+      .nav-link:hover {
+        color: #f9f6f0 !important;
+        text-decoration: underline;
+      }
+
+      /* Header Carousel Styles */
+      .carousel-inner img {
+        max-height: 500px;
+        object-fit: cover;
+      }
+      .carousel-caption {
+        position: absolute;
+        bottom: 0; /* Atur jarak dari bawah sesuai kebutuhan */
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Atur warna dan transparansi latar belakang */
+        padding: 10px;
+        text-align: center; /* Atur teks menjadi tengah */
+        box-sizing: border-box;
+      }
+
+      .carousel-caption h5 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #f9f6f0;
+      }
+      .carousel-caption p {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #d8d8d8;
+      }
+
+      /* Section Titles */
+      h2 {
+        color: #557153;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: "Georgia", serif;
+      }
+
+      /* Product, Restaurant, Accommodation Sections */
+      section {
+        padding: 50px 0;
+      }
+      section:nth-child(even) {
+        background-color: #fff;
+      }
+      section:nth-child(odd) {
+        background-color: #f1efe6;
+      }
+
+      h3 {
+        color: #8c7352;
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #4a4a4a;
+      }
+
+      /* Carousel Controls */
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: #557153;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+      }
+
+      /* Carousel Image Styles */
+      .carousel-inner {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .carousel-inner .carousel-item img {
+        width: 100%; /* Ensure the image covers the entire width */
+        height: 100%; /* Ensure the image covers the entire height */
+        object-fit: cover; /* Maintain the aspect ratio and fill the container */
+        border-radius: 15px; /* Apply rounded corners */
+        transition: transform 0.5s ease-in-out; /* Smooth transition for image movement */
+      }
+
+      /* Smooth slide transition between carousel items */
+      .carousel-item {
+        transition: transform 0.5s ease; /* Smooth slide transition */
+      }
+
+      /* Buttons */
+      button {
+        background-color: #557153;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        transition: all 0.3s;
+      }
+
+      /* Map Section */
+      #map {
+        background-color: #eef0e1;
+      }
+      .ratio iframe {
+        border: 2px solid #557153;
+        border-radius: 10px;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(
+          to right,
+          #557153,
+          #8c7352
+        ); /* Gradasi dari hijau ke cokelat */
+        color: #f9f6f0; /* White text */
+        text-align: center;
+        padding: 40px 0;
+        margin-top: 30px;
+      }
+
+      footer h4 {
+        font-size: 1.3rem;
+        color: #f9f6f0;
+        margin-bottom: 15px;
+      }
+
+      footer p {
+        color: #f9f6f0;
+        font-size: 1rem;
+      }
+
+      footer .social-media-icons a {
+        display: inline-block;
+        margin-right: 15px;
+      }
+
+      footer .social-media-icons img {
+        width: 30px;
+        height: 30px;
+      }
+
+      footer .social-media-icons a:hover img {
+        opacity: 0.8;
+      }
+
+      footer form input[type="email"] {
+        background-color: #f9f6f0;
+        color: #557153;
+        border: 1px solid #8c7352;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+      }
+
+      footer form button {
+        background-color: #8c7352;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        transition: all 0.3s;
+      }
+
+      footer form button:hover {
+        background-color: #557153;
+      }
+
+      footer .text-center {
+        font-size: 0.9rem;
+        color: #d8d8d8;
+      }
+
+      footer .text-center a {
+        color: #f9f6f0;
+        text-decoration: none;
+      }
+
+      footer .text-center a:hover {
+        color: #d8d8d8;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .carousel-inner img {
+          max-height: 300px;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        h3 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Adjust logo size */
+      .navbar img {
+        max-height: 50px;
+        width: auto;
+      }
+
+      /* Adjust carousel images */
+      .carousel-inner img {
+        max-height: 800px;
+        object-fit: cover;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <img
+            src="logo_dispar-removebg-preview.png"
+            alt="Logo 1"
+            class="me-2"
+          />
+          <img
+            src="bangli_the_origin-removebg-preview.png"
+            alt="Logo 2"
+            class="me-3"
+          />
+          <a class="navbar-brand" href="#">Panglipuran Village</a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#products">Local Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#restaurant">Bamboo Restaurant</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#accommodation">Accommodations</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#map">Map</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- penglipuran page -->
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="page penglipuran.jpg"
+            class="d-block w-100"
+            alt="Penglipuran View 1"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Jalan Penglipuran Village</h5>
+            <p>This is a part of Penglipuran Village</p>
+          </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="penglipuran page2.jpg"
+              class="d-block w-100"
+              alt="Penglipuran View 2"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Cultural Ceremony</h5>
+              <p>A traditional ceremony is held in Penglipuran Village</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="pasar penglipuran.jpg"
+              class="d-block w-100"
+              alt="Penglipuran View 3"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Penglipuran Traditional Market</h5>
+              <p>A Traditional market in Penglipuran Village</p>
+            </div>
+          </div>
+          
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Local Products Section with Carousel -->
+    <section id="products" class="py-5">
+      <div class="container">
+        <h2 class="text-center">Local Products</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div
+              id="productsCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="local product.jpg"
+                    class="d-block w-100"
+                    alt="Product 1"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="local product1.jpg"
+                    class="d-block w-100"
+                    alt="Product 2"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="local product2.jpg"
+                    class="d-block w-100"
+                    alt="Product 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#productsCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#productsCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3>Explore Local Products</h3>
+            <p>
+              Discover unique handmade crafts and authentic Balinese products
+              from Penglipuran Village. Each item tells a story of tradition and
+              artistry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bamboo Restaurant Section with Carousel -->
+    <section id="restaurant" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center">Bamboo Restaurant</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div
+              id="restaurantCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="bamboo1.jpg"
+                    class="d-block w-100"
+                    alt="Restaurant View 1"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="bamboo2.jpg"
+                    class="d-block w-100"
+                    alt="Restaurant View 2"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="bamboo3.jpg"
+                    class="d-block w-100"
+                    alt="Restaurant View 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#restaurantCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#restaurantCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3>Dine at Bamboo Restaurant</h3>
+            <p>
+              Experience dining with a view at our eco-friendly Bamboo
+              Restaurant. Enjoy authentic Balinese cuisine made from fresh local
+              ingredients.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accommodations Section with Carousel -->
+    <section id="accommodation" class="py-5">
+      <div class="container">
+        <h2 class="text-center">Accommodations</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div
+              id="accommodationCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="homestay.jpg"
+                    class="d-block w-100"
+                    alt="Accommodation 1"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="guesthouse.webp"
+                    class="d-block w-100"
+                    alt="Accommodation 2"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="camping.webp"
+                    class="d-block w-100"
+                    alt="Accommodation 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#accommodationCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#accommodationCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3>Stay in Comfort</h3>
+            <p>
+              Explore a variety of accommodations that offer a unique
+              experience: from cozy traditional Balinese homestays to
+              comfortable guesthouses, and even eco-friendly camping in the
+              heart of nature
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center">Location</h2>
+        <p class="text-center">Find us on the map below:</p>
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d504848.0782568282!2d114.90511837740667!3d-8.679603175344006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2196eace4f4a9%3A0x3319169adf0c3419!2sDesa%20Wisata%20Penglipuran!5e0!3m2!1sid!2sid!4v1737041918468!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <!-- Contact Us Section -->
+          <div class="col-md-4">
+            <h4>Contact Us</h4>
+            <p>Email: info@panglipuranvillage.com</p>
+            <p>Phone: +62 123 456 789</p>
+            <p>Address: Penglipuran Village, Bali, Indonesia</p>
+          </div>
+
+          <!-- Social Media Section -->
+          <div class="col-md-4">
+            <h4>Follow Us</h4>
+            <div class="social-media-icons">
+              <a
+                href="https://facebook.com/panglipuranvillage"
+                target="_blank"
+                class="me-3"
+              >
+                <img
+                  src="facebook.png"
+                  alt="Facebook"
+                />
+              </a>
+              <a
+                href="https://instagram.com/panglipuranvillage"
+                target="_blank"
+                class="me-3"
+              >
+                <img
+                  src="ig icon.png"
+                  alt="Instagram"
+                />
+              </a>
+              <a
+                href="https://twitter.com/panglipuranvillage"
+                target="_blank"
+                class="me-3"
+              >
+                <img
+                  src="twitter.png"
+                  alt="Twitter"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- Newsletter Section -->
+          <div class="col-md-4">
+            <h4>Stay Updated</h4>
+            <form action="#" method="POST">
+              <input
+                type="email"
+                class="form-control mb-2"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="btn btn-light w-100">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="text-center mt-4">
+          <p>&copy; 2025 Panglipuran Village. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
