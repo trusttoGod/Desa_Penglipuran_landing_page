@@ -50,9 +50,10 @@
         max-height: 500px;
         object-fit: cover;
       }
+      /* Update untuk carousel caption */
       .carousel-caption {
         position: absolute;
-        bottom: 0; /* Atur jarak dari bawah sesuai kebutuhan */
+        bottom: 10%; /* Menjaga caption tidak terlalu dekat dengan bawah */
         left: 0;
         right: 0;
         width: 100%;
@@ -60,11 +61,21 @@
           0,
           0,
           0,
-          0.5
-        ); /* Atur warna dan transparansi latar belakang */
-        padding: 10px;
-        text-align: center; /* Atur teks menjadi tengah */
+          0.6
+        ); /* Warna latar belakang lebih gelap agar teks lebih terbaca */
+        padding: 15px;
+        text-align: center;
         box-sizing: border-box;
+      }
+
+      /* Sesuaikan font size untuk tampilan mobile */
+      @media (max-width: 768px) {
+        .carousel-caption h5 {
+          font-size: 1.4rem; /* Sesuaikan ukuran font judul */
+        }
+        .carousel-caption p {
+          font-size: 1rem; /* Sesuaikan ukuran font deskripsi */
+        }
       }
 
       .carousel-caption h5 {
@@ -320,30 +331,29 @@
             <h5>Jalan Penglipuran Village</h5>
             <p>This is a part of Penglipuran Village</p>
           </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="penglipuran page2.jpg"
+            class="d-block w-100"
+            alt="Penglipuran View 2"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Cultural Ceremony</h5>
+            <p>A traditional ceremony is held in Penglipuran Village</p>
           </div>
-          <div class="carousel-item">
-            <img
-              src="penglipuran page2.jpg"
-              class="d-block w-100"
-              alt="Penglipuran View 2"
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Cultural Ceremony</h5>
-              <p>A traditional ceremony is held in Penglipuran Village</p>
-            </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="pasar penglipuran.jpg"
+            class="d-block w-100"
+            alt="Penglipuran View 3"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Penglipuran Traditional Market</h5>
+            <p>A Traditional market in Penglipuran Village</p>
           </div>
-          <div class="carousel-item">
-            <img
-              src="pasar penglipuran.jpg"
-              class="d-block w-100"
-              alt="Penglipuran View 3"
-            />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Penglipuran Traditional Market</h5>
-              <p>A Traditional market in Penglipuran Village</p>
-            </div>
-          </div>
-          
+        </div>
       </div>
       <button
         class="carousel-control-prev"
@@ -622,30 +632,21 @@
                 target="_blank"
                 class="me-3"
               >
-                <img
-                  src="facebook.png"
-                  alt="Facebook"
-                />
+                <img src="facebook.png" alt="Facebook" />
               </a>
               <a
                 href="https://instagram.com/panglipuranvillage"
                 target="_blank"
                 class="me-3"
               >
-                <img
-                  src="ig icon.png"
-                  alt="Instagram"
-                />
+                <img src="ig icon.png" alt="Instagram" />
               </a>
               <a
                 href="https://twitter.com/panglipuranvillage"
                 target="_blank"
                 class="me-3"
               >
-                <img
-                  src="twitter.png"
-                  alt="Twitter"
-                />
+                <img src="twitter.png" alt="Twitter" />
               </a>
             </div>
           </div>
